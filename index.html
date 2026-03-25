@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Guitarra GuitManos | Piura</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+            background-color: #3b0110; 
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.4); 
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            max-width: 450px; width: 85%;
+            margin: 20px;
+            border: 1px solid rgba(247, 160, 28, 0.2);
+        }
+
+        .logo { max-width: 180px; margin-bottom: 1.5rem; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); }
+
+        h1 { color: #f7a01c; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 5px; }
+        
+        .btn-maestro {
+            background-color: transparent;
+            color: #f7a01c;
+            border: 2px solid #f7a01c;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        .btn-maestro:hover { background: #f7a01c; color: #3b0110; }
+
+        .contact-box { background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 15px; margin-bottom: 1.5rem; text-align: left; font-size: 0.85rem; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 8px; }
+        .contact-item a { color: white; text-decoration: none; }
+        .icon-small { width: 16px; margin-right: 10px; }
+
+        .social-grid { display: flex; justify-content: center; gap: 15px; margin-bottom: 1.5rem; }
+        .social-icon { width: 42px; transition: transform 0.3s; }
+        .social-icon:hover { transform: scale(1.2); }
+
+        .share-btn {
+            background: #f7a01c; color: #3b0110; border: none; padding: 12px;
+            border-radius: 50px; width: 100%; font-weight: bold; cursor: pointer;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; z-index: 10; left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+            align-items: center; justify-content: center;
+        }
+
+        .modal-content {
+            background: #4a0214;
+            padding: 2rem; border-radius: 20px;
+            max-width: 450px; width: 90%;
+            max-height: 85vh; overflow-y: auto;
+            border: 1px solid #f7a01c;
+            position: relative;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; color: #f7a01c; }
+
+        .profile-img {
+            width: 130px; height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f7a01c;
+            margin-bottom: 1rem;
+        }
+
+        .profile-title { color: #f7a01c; font-size: 1.3rem; margin-top: 0; text-transform: uppercase; }
+        .profile-text { line-height: 1.5; font-size: 0.88rem; text-align: justify; color: #eee; }
+        .phrase { font-style: italic; color: #f7a01c; margin-top: 15px; font-weight: bold; font-size: 1rem; border-top: 1px solid rgba(247, 160, 28, 0.3); padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="logo_guitmanos.png" alt="GuitManos Logo" class="logo">
+        <h1>GuitManos Oficial</h1>
+        <p style="margin-bottom: 20px; opacity: 0.9;">Academia de Guitarra en Piura</p>
+
+        <button class="btn-maestro" onclick="toggleModal(true)">Descubre a tu instructor ideal</button>
+
+        <div class="contact-box">
+            <div class="contact-item">
+                <img src="https://img.icons8.com/ios-filled/50/f7a01c/marker.png" class="icon-small">
+                <span>Piura, Perú</span>
+            </div>
+            <div class="contact-item">
+                <img src="https://img.icons8.com/ios-filled/50/f7a01c/whatsapp.png" class="icon-small">
+                <a href="https://wa.me/51934311571?text=Hola%20Profesor%20Walter%20Vilcas,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20las%20clases%20de%20guitarra.%20%C2%A1Muchas%20gracias!">+51 934 311 571</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://img.icons8.com/ios-filled/50/f7a01c/new-post.png" class="icon-small">
+                <a href="mailto:wvilcassalvador@gmail.com">wvilcassalvador@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="social-grid">
+            <a href="https://www.facebook.com/share/1CVrjBFfQ1/" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" class="social-icon"></a>
+            <a href="https://www.youtube.com/@waltervilcasoficial1111" target="_blank"><img src="https://img.icons8.com/color/48/youtube-play.png" class="social-icon"></a>
+            
+            <a href="https://wa.me/51934311571?text=Hola%20Profesor%20Walter%20Vilcas,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20las%20clases%20de%20guitarra.%20%C2%A1Muchas%20gracias!" target="_blank">
+                <img src="https://img.icons8.com/color/48/whatsapp.png" class="social-icon">
+            </a>
+            
+            <a href="mailto:wvilcassalvador@gmail.com"><img src="https://img.icons8.com/color/48/gmail-new.png" class="social-icon"></a>
+        </div>
+
+        <button class="share-btn" onclick="compartirWeb()">COMPARTIR PÁGINA</button>
+    </div>
+
+    <div id="maestroModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleModal(false)">&times;</span>
+            <img src="maestro_walter.png" alt="Profesor Walter Vilcas" class="profile-img">
+            <h2 class="profile-title">Profesor Walter Vilcas</h2>
+            <div class="profile-text">
+                <p>El Prof. Walter Vilcas inició su camino en la guitarra a los nueve años, bajo la guía de su padre, desarrollando una profunda conexión con la música desde temprana edad. Durante su etapa escolar, participó activamente en talleres artísticos y en la agrupación folclórica de su institución.</p>
+                
+                <p>En 2014, comenzó su formación profesional en la <strong>Escuela Superior de Música “José María Valle Riestra” de Piura</strong>; allí consolidó una sólida base musical bajo la guía del maestro Augusto Gerardo Palacios Arrunátegui, quien le enseñó la técnica de la guitarra clásica y peruana, culminando sus estudios en 2018.</p>
+                
+                <p>Su búsqueda artística ha sido constante: en 2019 participó en una masterclass con el músico piurano Coco Vega. En 2020, perfeccionó su estilo con el maestro Víctor Meléndez Boulanger, reconocido por su trayectoria junto al legendario Paco de Lucía.</p>
+                
+                <p>Recientemente, en 2025, recibió formación de Diego Varillas en música criolla y armonía moderna; además, fortaleció su técnica flamenca con el guitarrista Amir John Haddad (Alemania). Actualmente, se dedica con sólida experiencia a la enseñanza de nuevas generaciones.</p>
+            </div>
+            <p class="phrase">“La guitarra es mucho más que un instrumento, es mi vida. ¡Atrévete a contar tu propia historia!”</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(show) {
+            document.getElementById('maestroModal').style.display = show ? 'flex' : 'none';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('maestroModal');
+            if (event.target == modal) { toggleModal(false); }
+        }
+
+        function compartirWeb() {
+            if (navigator.share) {
+                navigator.share({ title: 'GuitManos Oficial', url: window.location.href });
+            } else {
+                alert("Enlace copiado: " + window.location.href);
+            }
+        }
+    </script>
+</body>
+</html>
